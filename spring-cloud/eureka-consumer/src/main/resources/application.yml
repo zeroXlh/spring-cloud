@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: eureka-consumer
+
+# 官方正在调试ribbon loadbalance，建议使用spring cloud balancer
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 8763
+  
+eureka: 
+  client: 
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#    healthcheck:
+#      enabled: true
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: eureka-client
+
+# 官方正在调试ribbon loadbalance，建议使用spring cloud balancer
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+#      zone: xlh_zone
+server:
+  port: 8762
+  
+eureka: 
+  client: 
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#    healthcheck:
+#      enabled: true
+  instance:
+    hostname: localhost
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+#    ${eureka.hostName}解析为当前机器主机名，此占位符仅最新版本可用（2.2.1.RELEASE以后，更旧的版本未测）
+#  ${eureka.instance.hostName}未解析，不知为何？
+    health-check-url: https://${eureka.instance.hostName}/health
+    home-page-url: https://${eureka.instance.hostName}/
+    status-page-url: https://${eureka.instance.hostName}/info

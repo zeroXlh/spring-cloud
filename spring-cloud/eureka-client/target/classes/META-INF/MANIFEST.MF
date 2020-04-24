@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: eureka-client
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.zero
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/cloud/eureka-client
+Created-By: Maven Integration for Eclipse
+

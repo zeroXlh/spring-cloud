@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: eureka-server
+#  当项目自身已经使用了Thymeleaf作为模板引擎，必须手动配置
+#  freemarker模板引擎（eureka server need）
+#  freemarker:
+#    template-loader-path:
+#    - classpath:/templates/
+#    prefer-file-system-access: false
+# 官方正在调试ribbon loadbalance，建议使用spring cloud balancer
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 8761
+  
+  
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+#    独立模式，
+#register-with-eureka：表示此客户端是否向server（自己）注册信息（以便被其他程序发现），默认为true
+#fetch-registry：表示是否从eureka server中获取注册实例列表信息，默认为true
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
